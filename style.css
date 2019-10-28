@@ -1,0 +1,94 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Oswald', sans-serif;
+}
+
+:root {
+    --pos1: translateZ(12.5rem);
+    --pos2: translateZ(9.37rem);
+    --pos3: translateZ(6.25rem);
+}
+
+body {
+    height: 100vh;
+    display: grid;
+    place-items: center;
+}
+
+.card {
+    max-width: 400px;
+    width: 40%;
+
+    /* background-color: Pink; */
+}
+
+.card-content {
+    position: relative;
+    text-align: center;
+    padding: 8em;
+
+    transition: transform 3s;
+    transform-style: preserve-3d;
+}
+
+.card:hover .card-content {
+    transform: rotateY(0.5turn) scale(1.5);
+
+}
+
+.front,
+.back {
+    padding: 1em;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.front {
+    background-color: lightseagreen;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-blend-mode: overlay;
+    background-image: url('person.jpg');
+    background-size: cover;
+}
+
+.front::after {
+    content: '';
+    position: absolute;
+    top: 5%;
+    bottom: 5%;
+    left: 5%;
+    right: 5%;
+    border: 8px solid salmon;
+    transform: var(--pos2);
+
+}
+
+.back {
+    background-color: #333;
+    transform: rotateY(0.5turn);
+    transform-style: preserve-3d;
+    font-size: 1.5rem;
+    color: dodgerblue;
+}
+
+.name {
+    transform: var(--pos1);
+    font-size: 2.5rem;
+}
+
+.desig {
+    transform: var(--pos3);
+    font-size: 1.3rem;
+}
+
+.about {
+    transform: var(--pos1);
+}
